@@ -1,8 +1,7 @@
 export const addGroceriesReducer = (state = [], action) => {
   switch(action.type) {
     case "ADD_GROCERY":
-      state.push(action.groceryItem)
-      return state
+      return [...state, action.groceryItem]
     default: 
       return state
   }
