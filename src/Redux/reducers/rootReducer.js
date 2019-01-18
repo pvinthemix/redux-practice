@@ -1,6 +1,6 @@
-import { combineReducers } from 'redux';
-import { addGroceriesReducer } from './addGroceriesReducer.js';
+import { combineReducers } from "redux";
+import { groceriesReducer } from "./groceriesReducer.js";
 
 export const rootReducer = combineReducers({
-  groceries: addGroceriesReducer
-})
+  groceries: groceriesReducer
+});
