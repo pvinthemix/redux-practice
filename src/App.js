@@ -1,8 +1,9 @@
 import React, { Component } from "react";
-import "./App.css";
+import "./_App.scss";
 import { connect } from "react-redux";
 import { addGrocery } from "./Redux/actions/actions";
 import GroceryList from "./GroceryList";
+
 
 class App extends Component {
   constructor() {
