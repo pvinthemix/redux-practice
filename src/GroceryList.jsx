@@ -1,6 +1,8 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
 import { removeGrocery } from "./Redux/actions/actions";
+import styled from "styled-components";
+
 
 class GroceryList extends Component {
   
@@ -11,12 +13,14 @@ class GroceryList extends Component {
   renderGroceries = () => {
     return this.props.groceries.map((grocery, groceryItemIndex) => {
       return (
-        <div>
-          <h1>{grocery}</h1>
-          <button onClick={() => this.handleRemoveGroceryItem(groceryItemIndex)}>
-            Delete
-          </button>
-        </div>
+        <GroceryListWrapper>
+           <GroceryItemWrapper>
+            <h1>{grocery}</h1>
+            <button onClick={() => this.handleRemoveGroceryItem(groceryItemIndex)}>
+             Delete
+            </button>
+          </GroceryItemWrapper>
+        </GroceryListWrapper>
       );
     });
   };
@@ -35,6 +39,20 @@ const mapStateToProps = state => ({
 });
 
 //We're using mapStateToProps here because we want to grab the array of groceries, make it into a prop we can use on this component. It is read only. We are not changing state in this component with this function.
+
+const GroceryListWrapper = styled.div`
+  
+  text-align: center;
+  display: flex;
+  justify-content: center;
+  margin: 20px;
+`;
+
+const GroceryItemWrapper = styled.div`
+  height: 100px;
+  width: 100px;
+  border: solid black 2px;
+`;
 
 export default connect(
   mapStateToProps,
